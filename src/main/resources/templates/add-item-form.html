@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Item Form</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Add Item Form</h1>
+      <form method="post" th:object="${item}">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            th:field="*{name}"
+          />
+        </div>
+        <div class="form-group">
+          <label for="brand">Brand:</label>
+          <select class="form-control" id="brand" th:field="*{brand}">
+            <option
+              th:each="b : ${brands}"
+              th:value="${b}"
+              th:text="${b}"
+            ></option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="yearOfCreation">Year of Creation:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="yearOfCreation"
+            th:field="*{yearOfCreation}"
+          />
+        </div>
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="price"
+            th:field="*{price}"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Add Item</button>
+      </form>
+      <br />
+      <div th:if="${error}" class="alert alert-danger" role="alert">
+        <p th:text="${error}"></p>
+      </div>
+      <div th:if="${success}" class="alert alert-success" role="alert">
+        <p th:text="${success}"></p>
+      </div>
+    </div>
+  </body>
+</html>
