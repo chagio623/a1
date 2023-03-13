@@ -14,11 +14,16 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @Entity
 public class Item {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
+
     private Brand brand;
+
     private int yearOfCreation;
+
     private double price;
 }

@@ -34,7 +34,7 @@ public class ItemController {
             model.addAttribute(ERROR, "Year of creation should be more than 2021");
             return ADD_ITEM_FORM;
         }
-        // add the item to the database
+        
         model.addAttribute("item", new Item());
         model.addAttribute("brands", Brand.values());
         model.addAttribute("success", "Item added successfully");
